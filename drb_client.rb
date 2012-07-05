@@ -1,10 +1,14 @@
-#!/usr/bin/env ruby
-# client
+#
+# Example taken from http://segment7.net/projects/ruby/drb/introduction.html
+#
+# Receives the url of the DRb server in the comand line
 
 require 'drb'
 
+# Creates an Undumped class
+# Calls will be made back to it's methods and it won't be
+# serialized and transmited to the other endpoint
 Point = Struct.new 'Point', :x, :y
-
 class Point
   include DRbUndumped
 
@@ -13,6 +17,7 @@ class Point
   end
 end
 
+# Start DRb get a new server object and use it
 DRb.start_service
 dist_calc = DRbObject.new nil, ARGV.shift
 

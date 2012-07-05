@@ -1,6 +1,8 @@
-#!/usr/bin/env ruby -w
-# ringserver.rb
+#
+# Example taken from http://segment7.net/projects/ruby/drb/introduction.html
+#
 # Rinda RingServer
+
 
 require 'rinda/ring'
 require 'rinda/tuplespace'

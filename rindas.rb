@@ -1,6 +1,7 @@
-#!/usr/bin/env ruby
+#
+# Example taken from http://segment7.net/projects/ruby/drb/introduction.html
+#
 # rindas.rb
-# rindas modified to find the TupleSpace via a RingServer
 
 require 'rinda/ring'
 
@@ -10,12 +11,14 @@ def do_it(v)
 end
 
 DRb.start_service
+
+
+# Finds the tuple space via the ring server
 ring_server = Rinda::RingFinger.primary
-
 ts = ring_server.read([:name, :TupleSpace, nil, nil])[2]
-
 ts = Rinda::TupleSpaceProxy.new ts
 
+# Takes requests for a 'sum', processes them and writes the response
 loop do
   r = ts.take(['sum', nil, nil])
   v = do_it(r[2])
