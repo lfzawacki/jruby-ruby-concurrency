@@ -1,6 +1,8 @@
 jruby-ruby-concurrency
 ======================
 
+[The presentation]( https://docs.google.com/presentation/d/1fpyZ_xDbu2CxGroNQtsGBrh-3YuEiuFFpeE3-W1AJRg/edit) (in portuguese):
+
 We've got some examples of distributed and parallel programming using Ruby, JRuby and Java here:
 
 * Ruby Drb client-server example
